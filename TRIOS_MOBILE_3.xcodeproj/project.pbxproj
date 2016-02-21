@@ -7,21 +7,49 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		016D2A611C78C5F6002EDA1D /* MERCURY COMMS in Resources */ = {isa = PBXBuildFile; fileRef = 016D2A601C78C5F6002EDA1D /* MERCURY COMMS */; };
+		016D2A731C78C7A5002EDA1D /* MercuryInstrument.m in Sources */ = {isa = PBXBuildFile; fileRef = 016D2A651C78C7A5002EDA1D /* MercuryInstrument.m */; };
+		016D2A741C78C7A5002EDA1D /* MercuryBroadcastManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 016D2A671C78C7A5002EDA1D /* MercuryBroadcastManager.m */; };
+		016D2A751C78C7A5002EDA1D /* GCDAsyncUdpSocket.m in Sources */ = {isa = PBXBuildFile; fileRef = 016D2A681C78C7A5002EDA1D /* GCDAsyncUdpSocket.m */; };
+		016D2A761C78C7A5002EDA1D /* MercuryStatus.m in Sources */ = {isa = PBXBuildFile; fileRef = 016D2A6A1C78C7A5002EDA1D /* MercuryStatus.m */; };
+		016D2A771C78C7A5002EDA1D /* MercuryProcedure.m in Sources */ = {isa = PBXBuildFile; fileRef = 016D2A6B1C78C7A5002EDA1D /* MercuryProcedure.m */; };
+		016D2A781C78C7A5002EDA1D /* GCDAsyncSocket.m in Sources */ = {isa = PBXBuildFile; fileRef = 016D2A6E1C78C7A5002EDA1D /* GCDAsyncSocket.m */; };
+		016D2A791C78C7A5002EDA1D /* MercuryFile.m in Sources */ = {isa = PBXBuildFile; fileRef = 016D2A721C78C7A5002EDA1D /* MercuryFile.m */; };
+		016D2A7C1C78CBAE002EDA1D /* info.png in Resources */ = {isa = PBXBuildFile; fileRef = 016D2A7B1C78CBAE002EDA1D /* info.png */; };
+		016D2A801C78CF2F002EDA1D /* InstrumentCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 016D2A7F1C78CF2F002EDA1D /* InstrumentCell.swift */; };
 		01E9F1711C78BEF00042A3B6 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01E9F1701C78BEF00042A3B6 /* AppDelegate.swift */; };
-		01E9F1731C78BEF00042A3B6 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01E9F1721C78BEF00042A3B6 /* ViewController.swift */; };
 		01E9F1761C78BEF00042A3B6 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 01E9F1741C78BEF00042A3B6 /* Main.storyboard */; };
 		01E9F1781C78BEF00042A3B6 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 01E9F1771C78BEF00042A3B6 /* Assets.xcassets */; };
 		01E9F17B1C78BEF00042A3B6 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 01E9F1791C78BEF00042A3B6 /* LaunchScreen.storyboard */; };
+		01E9F1831C78C2610042A3B6 /* InstrumentCollectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01E9F1821C78C2610042A3B6 /* InstrumentCollectionViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		016D2A601C78C5F6002EDA1D /* MERCURY COMMS */ = {isa = PBXFileReference; lastKnownFileType = folder; name = "MERCURY COMMS"; path = "/Users/seshelman/Dev/MERCURY COMMS"; sourceTree = "<absolute>"; };
+		016D2A641C78C7A5002EDA1D /* TRIOS_MOBILE-Bridging-Header.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "TRIOS_MOBILE-Bridging-Header.h"; path = "../../MERCURY COMMS/TRIOS_MOBILE-Bridging-Header.h"; sourceTree = "<group>"; };
+		016D2A651C78C7A5002EDA1D /* MercuryInstrument.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = MercuryInstrument.m; path = "../../MERCURY COMMS/MercuryInstrument.m"; sourceTree = "<group>"; };
+		016D2A661C78C7A5002EDA1D /* MercuryInstrument.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = MercuryInstrument.h; path = "../../MERCURY COMMS/MercuryInstrument.h"; sourceTree = "<group>"; };
+		016D2A671C78C7A5002EDA1D /* MercuryBroadcastManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = MercuryBroadcastManager.m; path = "../../MERCURY COMMS/MercuryBroadcastManager.m"; sourceTree = "<group>"; };
+		016D2A681C78C7A5002EDA1D /* GCDAsyncUdpSocket.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = GCDAsyncUdpSocket.m; path = "../../MERCURY COMMS/GCDAsyncUdpSocket.m"; sourceTree = "<group>"; };
+		016D2A691C78C7A5002EDA1D /* MercuryStatus.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = MercuryStatus.h; path = "../../MERCURY COMMS/MercuryStatus.h"; sourceTree = "<group>"; };
+		016D2A6A1C78C7A5002EDA1D /* MercuryStatus.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = MercuryStatus.m; path = "../../MERCURY COMMS/MercuryStatus.m"; sourceTree = "<group>"; };
+		016D2A6B1C78C7A5002EDA1D /* MercuryProcedure.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = MercuryProcedure.m; path = "../../MERCURY COMMS/MercuryProcedure.m"; sourceTree = "<group>"; };
+		016D2A6C1C78C7A5002EDA1D /* MercuryProcedure.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = MercuryProcedure.h; path = "../../MERCURY COMMS/MercuryProcedure.h"; sourceTree = "<group>"; };
+		016D2A6D1C78C7A5002EDA1D /* GCDAsyncSocket.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = GCDAsyncSocket.h; path = "../../MERCURY COMMS/GCDAsyncSocket.h"; sourceTree = "<group>"; };
+		016D2A6E1C78C7A5002EDA1D /* GCDAsyncSocket.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = GCDAsyncSocket.m; path = "../../MERCURY COMMS/GCDAsyncSocket.m"; sourceTree = "<group>"; };
+		016D2A6F1C78C7A5002EDA1D /* GCDAsyncUdpSocket.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = GCDAsyncUdpSocket.h; path = "../../MERCURY COMMS/GCDAsyncUdpSocket.h"; sourceTree = "<group>"; };
+		016D2A701C78C7A5002EDA1D /* MercuryBroadcastManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = MercuryBroadcastManager.h; path = "../../MERCURY COMMS/MercuryBroadcastManager.h"; sourceTree = "<group>"; };
+		016D2A711C78C7A5002EDA1D /* MercuryFile.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = MercuryFile.h; path = "../../MERCURY COMMS/MercuryFile.h"; sourceTree = "<group>"; };
+		016D2A721C78C7A5002EDA1D /* MercuryFile.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = MercuryFile.m; path = "../../MERCURY COMMS/MercuryFile.m"; sourceTree = "<group>"; };
+		016D2A7B1C78CBAE002EDA1D /* info.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = info.png; sourceTree = "<group>"; };
+		016D2A7F1C78CF2F002EDA1D /* InstrumentCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = InstrumentCell.swift; path = ../InstrumentCell.swift; sourceTree = "<group>"; };
 		01E9F16D1C78BEF00042A3B6 /* TRIOS_MOBILE_3.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TRIOS_MOBILE_3.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		01E9F1701C78BEF00042A3B6 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		01E9F1721C78BEF00042A3B6 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		01E9F1751C78BEF00042A3B6 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		01E9F1771C78BEF00042A3B6 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		01E9F17A1C78BEF00042A3B6 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		01E9F17C1C78BEF00042A3B6 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		01E9F1821C78C2610042A3B6 /* InstrumentCollectionViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = InstrumentCollectionViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -35,6 +63,28 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		016D2A7A1C78C7AF002EDA1D /* MERCURY COMMS */ = {
+			isa = PBXGroup;
+			children = (
+				016D2A641C78C7A5002EDA1D /* TRIOS_MOBILE-Bridging-Header.h */,
+				016D2A651C78C7A5002EDA1D /* MercuryInstrument.m */,
+				016D2A661C78C7A5002EDA1D /* MercuryInstrument.h */,
+				016D2A671C78C7A5002EDA1D /* MercuryBroadcastManager.m */,
+				016D2A681C78C7A5002EDA1D /* GCDAsyncUdpSocket.m */,
+				016D2A691C78C7A5002EDA1D /* MercuryStatus.h */,
+				016D2A6A1C78C7A5002EDA1D /* MercuryStatus.m */,
+				016D2A6B1C78C7A5002EDA1D /* MercuryProcedure.m */,
+				016D2A6C1C78C7A5002EDA1D /* MercuryProcedure.h */,
+				016D2A6D1C78C7A5002EDA1D /* GCDAsyncSocket.h */,
+				016D2A6E1C78C7A5002EDA1D /* GCDAsyncSocket.m */,
+				016D2A6F1C78C7A5002EDA1D /* GCDAsyncUdpSocket.h */,
+				016D2A701C78C7A5002EDA1D /* MercuryBroadcastManager.h */,
+				016D2A711C78C7A5002EDA1D /* MercuryFile.h */,
+				016D2A721C78C7A5002EDA1D /* MercuryFile.m */,
+			);
+			name = "MERCURY COMMS";
+			sourceTree = "<group>";
+		};
 		01E9F1641C78BEF00042A3B6 = {
 			isa = PBXGroup;
 			children = (
@@ -54,10 +104,13 @@
 		01E9F16F1C78BEF00042A3B6 /* TRIOS_MOBILE_3 */ = {
 			isa = PBXGroup;
 			children = (
+				016D2A7A1C78C7AF002EDA1D /* MERCURY COMMS */,
 				01E9F1701C78BEF00042A3B6 /* AppDelegate.swift */,
-				01E9F1721C78BEF00042A3B6 /* ViewController.swift */,
 				01E9F1741C78BEF00042A3B6 /* Main.storyboard */,
+				016D2A7F1C78CF2F002EDA1D /* InstrumentCell.swift */,
+				01E9F1821C78C2610042A3B6 /* InstrumentCollectionViewController.swift */,
 				01E9F1771C78BEF00042A3B6 /* Assets.xcassets */,
+				016D2A7B1C78CBAE002EDA1D /* info.png */,
 				01E9F1791C78BEF00042A3B6 /* LaunchScreen.storyboard */,
 				01E9F17C1C78BEF00042A3B6 /* Info.plist */,
 			);
@@ -123,8 +176,10 @@
 			buildActionMask = 2147483647;
 			files = (
 				01E9F17B1C78BEF00042A3B6 /* LaunchScreen.storyboard in Resources */,
+				016D2A7C1C78CBAE002EDA1D /* info.png in Resources */,
 				01E9F1781C78BEF00042A3B6 /* Assets.xcassets in Resources */,
 				01E9F1761C78BEF00042A3B6 /* Main.storyboard in Resources */,
+				016D2A611C78C5F6002EDA1D /* MERCURY COMMS in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -135,8 +190,16 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				01E9F1731C78BEF00042A3B6 /* ViewController.swift in Sources */,
+				016D2A781C78C7A5002EDA1D /* GCDAsyncSocket.m in Sources */,
+				016D2A791C78C7A5002EDA1D /* MercuryFile.m in Sources */,
 				01E9F1711C78BEF00042A3B6 /* AppDelegate.swift in Sources */,
+				016D2A751C78C7A5002EDA1D /* GCDAsyncUdpSocket.m in Sources */,
+				016D2A741C78C7A5002EDA1D /* MercuryBroadcastManager.m in Sources */,
+				016D2A771C78C7A5002EDA1D /* MercuryProcedure.m in Sources */,
+				016D2A801C78CF2F002EDA1D /* InstrumentCell.swift in Sources */,
+				01E9F1831C78C2610042A3B6 /* InstrumentCollectionViewController.swift in Sources */,
+				016D2A731C78C7A5002EDA1D /* MercuryInstrument.m in Sources */,
+				016D2A761C78C7A5002EDA1D /* MercuryStatus.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -253,6 +316,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "com.objectthink.TRIOS-MOBILE-3";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "../MERCURY COMMS/TRIOS_MOBILE-Bridging-Header.h";
 			};
 			name = Debug;
 		};
@@ -264,6 +328,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "com.objectthink.TRIOS-MOBILE-3";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "../MERCURY COMMS/TRIOS_MOBILE-Bridging-Header.h";
 			};
 			name = Release;
 		};
@@ -286,6 +351,7 @@
 				01E9F1811C78BEF00042A3B6 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
