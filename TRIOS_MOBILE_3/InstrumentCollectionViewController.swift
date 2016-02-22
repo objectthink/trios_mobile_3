@@ -126,6 +126,12 @@ class InstrumentCollectionViewController: UICollectionViewController
    
    // MARK: UICollectionViewDelegate
    
+   override func collectionView(collection: UICollectionView, didSelectItemAtIndexPath selectedItemIndex: NSIndexPath)
+   {
+      //As sender send any data you need from the current Selected CollectionView
+      self.performSegueWithIdentifier("InstrumentSegue", sender: self)
+   }
+   
    /*
    // Uncomment this method to specify if the specified item should be highlighted during tracking
    override func collectionView(collectionView: UICollectionView, shouldHighlightItemAtIndexPath indexPath: NSIndexPath) -> Bool

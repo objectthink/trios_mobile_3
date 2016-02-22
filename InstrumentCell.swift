@@ -127,26 +127,26 @@ class InstrumentCell: UICollectionViewCell, MercuryInstrumentDelegate
          }
          
          _instrument.sendCommand(GetLocation())
-            { (response) -> Void in
-               if let str = NSString(data: response.bytes, encoding: NSASCIIStringEncoding) as? String
-               {
-                  print(str)
+         { (response) -> Void in
+            if let str = NSString(data: response.bytes, encoding: NSASCIIStringEncoding) as? String
+            {
+               print(str)
                   
-                  dispatch_async(dispatch_get_main_queue(),
-                     { () -> Void in
-                        //let newStr =
-                        //str.stringByTrimmingCharactersInSet(NSCharacterSet(charactersInString: "\0"))
+               dispatch_async(dispatch_get_main_queue(),
+               { () -> Void in
+                  //let newStr =
+                  //str.stringByTrimmingCharactersInSet(NSCharacterSet(charactersInString: "\0"))
                         
-                        self._location.text = self.mercuryStringFixup(str)
+                  self._location.text = self.mercuryStringFixup(str)
                         
-                        print("LOCATION")
-                        print(str)
-                  })
-               }
-               else
-               {
-                  print("not a valid UTF-8 sequence")
-               }
+                  print("LOCATION")
+                  print(str)
+               })
+            }
+            else
+            {
+               print("not a valid UTF-8 sequence")
+            }
          }
       }
    }
