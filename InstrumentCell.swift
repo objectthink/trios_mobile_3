@@ -43,6 +43,7 @@ class InstrumentCell: UICollectionViewCell, MercuryInstrumentDelegate
    @IBOutlet var _name: UILabel!
    @IBOutlet var _serialNumber: UILabel!
    @IBOutlet var _location: UILabel!
+   @IBOutlet var _temperature: UILabel!
    
    var _instrument:MercuryInstrument!
    
@@ -172,7 +173,22 @@ class InstrumentCell: UICollectionViewCell, MercuryInstrumentDelegate
 //         _statCount = 0
 //      }
       
-      //print(subcommand)
+//      print(subcommand)
+      
+      if(subcommand == RealTimeSignalStatus.rawValue)
+      {
+         print("REALTIMESIGNALS")
+         
+         let response = MercuryRealTimeSignalsStatusResponse(message: message)
+         
+         print(response.signals[ 8])
+         print(response.signals[75])
+         
+         dispatch_async(dispatch_get_main_queue(),
+         { () -> Void in
+               self._temperature.text = "\(response.signals[75])"
+         })
+      }
       
       if subcommand == ProcedureStatus.rawValue
       {
