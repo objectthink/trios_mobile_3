@@ -145,22 +145,25 @@
                                     <action selector="segmentSelectionChanged:" destination="QiE-0p-Ynu" eventType="valueChanged" id="3cH-TQ-aeI"/>
                                 </connections>
                             </segmentedControl>
-                            <containerView opaque="NO" contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="qfz-Bv-ChB">
+                            <containerView opaque="NO" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="qfz-Bv-ChB">
                                 <rect key="frame" x="0.0" y="114" width="600" height="429"/>
                                 <connections>
-                                    <segue destination="YHL-vN-3lR" kind="embed" id="B6w-7O-AU1"/>
+                                    <segue destination="B8I-26-lhL" kind="embed" id="FLc-zb-d7P"/>
                                 </connections>
                             </containerView>
-                            <containerView opaque="NO" contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Oio-eU-Nnm">
+                            <containerView opaque="NO" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Oio-eU-Nnm">
                                 <rect key="frame" x="0.0" y="114" width="600" height="429"/>
                                 <connections>
-                                    <segue destination="GTg-kQ-fgT" kind="embed" id="4OB-lU-0nu"/>
+                                    <segue destination="GTg-kQ-fgT" kind="embed" id="6vW-QZ-Xzk"/>
                                 </connections>
                             </containerView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
+                            <constraint firstItem="Oio-eU-Nnm" firstAttribute="centerX" secondItem="o9f-fG-Hiy" secondAttribute="centerX" id="5ca-o9-Rp3"/>
                             <constraint firstItem="i4V-w4-M1K" firstAttribute="centerX" secondItem="o9f-fG-Hiy" secondAttribute="centerX" id="C1g-Qj-3Jl"/>
+                            <constraint firstItem="Oio-eU-Nnm" firstAttribute="centerY" secondItem="o9f-fG-Hiy" secondAttribute="centerY" id="IwN-Xc-M7y"/>
+                            <constraint firstItem="qfz-Bv-ChB" firstAttribute="centerX" secondItem="o9f-fG-Hiy" secondAttribute="centerX" id="mw7-Wl-aC3"/>
                         </constraints>
                     </view>
                     <tabBarItem key="tabBarItem" title="Signals" id="BJd-6Q-juW"/>
@@ -173,10 +176,10 @@
             </objects>
             <point key="canvasLocation" x="3249" y="-75"/>
         </scene>
-        <!--Tab Bar Controller-->
+        <!--Instrument Tab Bar Controller-->
         <scene sceneID="CKQ-eT-Njt">
             <objects>
-                <tabBarController id="p2D-a0-NH0" sceneMemberID="viewController">
+                <tabBarController id="p2D-a0-NH0" customClass="InstrumentTabBarController" customModule="TRIOS_MOBILE_3" customModuleProvider="target" sceneMemberID="viewController">
                     <tabBar key="tabBar" contentMode="scaleToFill" id="VuW-XW-z8f">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="49"/>
                         <autoresizingMask key="autoresizingMask"/>
@@ -227,11 +230,15 @@
             <objects>
                 <viewController id="YHL-vN-3lR" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="sSc-Js-LRm">
-                        <rect key="frame" x="0.0" y="0.0" width="600" height="429"/>
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="bzY-8b-8o9">
+                                <rect key="frame" x="71" y="0.0" width="457" height="303"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                            </tableView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Signals go here" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="nFB-Vd-6Lr">
-                                <rect key="frame" x="224" y="204" width="153" height="21"/>
+                                <rect key="frame" x="224" y="388" width="153" height="21"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                 <nil key="highlightedColor"/>
@@ -242,7 +249,35 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="9Hn-Yz-dMK" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="4064" y="-317.5"/>
+            <point key="canvasLocation" x="4865" y="-247"/>
+        </scene>
+        <!--Signals Table View Controller-->
+        <scene sceneID="Lyu-Wb-dsB">
+            <objects>
+                <tableViewController id="B8I-26-lhL" customClass="SignalsTableViewController" customModule="TRIOS_MOBILE_3" customModuleProvider="target" sceneMemberID="viewController">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" id="2Qa-eS-ZML">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="429"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <prototypes>
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="signalCellIdentifier" id="vcj-7p-dJN">
+                                <rect key="frame" x="0.0" y="28" width="600" height="44"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="vcj-7p-dJN" id="mKx-uJ-l48">
+                                    <rect key="frame" x="0.0" y="0.0" width="600" height="43"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                </tableViewCellContentView>
+                            </tableViewCell>
+                        </prototypes>
+                        <connections>
+                            <outlet property="dataSource" destination="B8I-26-lhL" id="dDg-cK-VID"/>
+                            <outlet property="delegate" destination="B8I-26-lhL" id="wwW-ao-5BA"/>
+                        </connections>
+                    </tableView>
+                </tableViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="gvg-AP-loz" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="4064" y="-295"/>
         </scene>
         <!--View Controller-->
         <scene sceneID="eKW-oX-1yB">

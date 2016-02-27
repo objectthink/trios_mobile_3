@@ -8,6 +8,11 @@
 
 import UIKit
 
+protocol MercuryHasInstrumentProtocol
+{
+   var instrument:MercuryInstrument {get set}
+}
+
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
 

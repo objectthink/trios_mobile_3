@@ -8,10 +8,21 @@
 
 import UIKit
 
-class MecurySignalsViewController: UIViewController
+class MecurySignalsViewController: UIViewController, MercuryHasInstrumentProtocol
 {
    @IBOutlet var _signalsView: UIView!
    @IBOutlet var _chartView: UIView!
+   
+   var _instrument:MercuryInstrument!
+   
+   var instrument:MercuryInstrument
+   {
+      get { return _instrument }
+      set
+      {
+         _instrument = newValue
+      }
+   }
    
    @IBAction func segmentSelectionChanged(sender: AnyObject)
    {
@@ -48,15 +59,17 @@ class MecurySignalsViewController: UIViewController
       // Dispose of any resources that can be recreated.
    }
    
-   
-   /*
    // MARK: - Navigation
    
    // In a storyboard-based application, you will often want to do a little preparation before navigation
-   override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
-   // Get the new view controller using segue.destinationViewController.
-   // Pass the selected object to the new view controller.
+   override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) 
+   {
+      // Get the new view controller using segue.destinationViewController.
+      // Pass the selected object to the new view controller.
+      
+      if let vc:SignalsTableViewController = segue.destinationViewController as? SignalsTableViewController
+      {
+         vc.instrument = instrument
+      }
    }
-   */
-
 }

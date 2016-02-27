@@ -125,11 +125,25 @@ class InstrumentCollectionViewController: UICollectionViewController
    }
    
    // MARK: UICollectionViewDelegate
-   
+   var _selectedItemIndex:NSIndexPath!
    override func collectionView(collection: UICollectionView, didSelectItemAtIndexPath selectedItemIndex: NSIndexPath)
    {
+      _selectedItemIndex = selectedItemIndex
+      
       //As sender send any data you need from the current Selected CollectionView
       self.performSegueWithIdentifier("InstrumentSegue", sender: self)
+   }
+   
+   // MARK: Navigation
+   // In a storyboard-based application, you will often want to do a little preparation before navigation
+   override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?)
+   {
+      // Get the new view controller using segue.destinationViewController.
+      // Pass the selected object to the new view controller.
+      
+      let vc:InstrumentTabBarController = segue.destinationViewController as! InstrumentTabBarController
+      
+      vc.instrument = _instruments[_selectedItemIndex.row]
    }
    
    /*
