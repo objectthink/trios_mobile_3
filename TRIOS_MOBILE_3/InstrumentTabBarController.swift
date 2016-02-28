@@ -21,9 +21,9 @@ class InstrumentTabBarController: UITabBarController
          // Do any additional setup after loading the view.
          for vc in viewControllers!
          {
-            if let msvc:MecurySignalsViewController = vc as? MecurySignalsViewController
+            if let vc:MercuryHasInstrumentProtocol = vc as? MercuryHasInstrumentProtocol
             {
-               msvc.instrument = instrument
+               vc.instrument = instrument
             }
          }
 

@@ -181,12 +181,12 @@ class InstrumentCell: UICollectionViewCell, MercuryInstrumentDelegate
          
          let response = MercuryRealTimeSignalsStatusResponse(message: message)
          
-         print(response.signals[ 8])
-         print(response.signals[75])
+         //print(response.signals[ 8])
+         //print(response.signals[75])
          
          dispatch_async(dispatch_get_main_queue(),
          { () -> Void in
-               self._temperature.text = "\(response.signals[75])"
+               self._temperature.text = "\(response.signals[Int(IdTemperature.rawValue)])"
          })
       }
       

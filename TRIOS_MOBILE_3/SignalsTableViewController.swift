@@ -8,12 +8,26 @@
 
 import UIKit
 
-class SignalsTableViewController: UITableViewController, MercuryInstrumentDelegate
+class SignalsTableViewController: UITableViewController, MercuryInstrumentDelegate, MercuryHasInstrumentProtocol
 {
    var _instrument:MercuryInstrument!
    var _signalsResponse: MercuryRealTimeSignalsStatusResponse!
 
-   var instrument:MercuryInstrument!
+   var _supportedSignals:[uint] =
+   [
+      IdDeltaT0C.rawValue,
+      IdDeltaT0CFilt.rawValue,
+      IdDeltaT0CUnc.rawValue,
+      IdDeltaTC.rawValue,
+      IdFlangeC.rawValue,
+      IdHeatFlow.rawValue,
+      IdT0UncorrectedMV.rawValue,
+      IdT0C.rawValue,
+      IdT0UncorrectedC.rawValue,
+      IdCommonTime.rawValue
+   ]
+   
+   var instrument:MercuryInstrument
    {
       get{ return _instrument}
       set
@@ -32,6 +46,11 @@ class SignalsTableViewController: UITableViewController, MercuryInstrumentDelega
       
       // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
       // self.navigationItem.rightBarButtonItem = self.editButtonItem()
+   }
+   
+   override func viewDidDisappear(animated: Bool)
+   {
+      _instrument.removeDelegate(self)
    }
    
    override func didReceiveMemoryWarning()
@@ -54,7 +73,7 @@ class SignalsTableViewController: UITableViewController, MercuryInstrumentDelega
       // #warning Incomplete implementation, return the number of rows
       if(_signalsResponse != nil)
       {
-         return 10
+         return _supportedSignals.count
       }
       else
       {
@@ -67,9 +86,8 @@ class SignalsTableViewController: UITableViewController, MercuryInstrumentDelega
       let cell = tableView.dequeueReusableCellWithIdentifier("signalCellIdentifier", forIndexPath: indexPath)
       
       // Configure the cell...
-      cell.textLabel?.text = "\(_signalsResponse.signals[indexPath.row])"
-      
-      //cell.textLabel?.text = _instrument.signalToString(IdDeltaT0C.rawValue)
+      cell.textLabel?.text       = _instrument.signalToString(_supportedSignals[indexPath.row])
+      cell.detailTextLabel?.text = "\(_signalsResponse.signals[Int(_supportedSignals[indexPath.row])])"
       
       return cell
    }
@@ -136,10 +154,7 @@ class SignalsTableViewController: UITableViewController, MercuryInstrumentDelega
          print("REALTIMESIGNALS !!!!!!")
          
          _signalsResponse = MercuryRealTimeSignalsStatusResponse(message: message)
-         
-         //print(response.signals[ 8])
-         //print(response.signals[75])
-         
+                  
          dispatch_async(dispatch_get_main_queue(),
          { () -> Void in
             self.tableView.reloadData()

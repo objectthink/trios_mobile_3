@@ -67,7 +67,7 @@ class MecurySignalsViewController: UIViewController, MercuryHasInstrumentProtoco
       // Get the new view controller using segue.destinationViewController.
       // Pass the selected object to the new view controller.
       
-      if let vc:SignalsTableViewController = segue.destinationViewController as? SignalsTableViewController
+      if let vc:MercuryHasInstrumentProtocol = segue.destinationViewController as? MercuryHasInstrumentProtocol
       {
          vc.instrument = instrument
       }

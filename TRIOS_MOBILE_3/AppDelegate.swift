@@ -8,7 +8,7 @@
 
 import UIKit
 
-protocol MercuryHasInstrumentProtocol
+protocol MercuryHasInstrumentProtocol:class
 {
    var instrument:MercuryInstrument {get set}
 }

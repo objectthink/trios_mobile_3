@@ -20,6 +20,7 @@
 		016D2A821C7A7FEB002EDA1D /* MecurySignalsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 016D2A811C7A7FEB002EDA1D /* MecurySignalsViewController.swift */; };
 		016D2A841C81D11F002EDA1D /* SignalsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 016D2A831C81D11F002EDA1D /* SignalsTableViewController.swift */; };
 		016D2A861C81D8E0002EDA1D /* InstrumentTabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 016D2A851C81D8E0002EDA1D /* InstrumentTabBarController.swift */; };
+		016D2A881C8272EC002EDA1D /* MercuryChartViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 016D2A871C8272EC002EDA1D /* MercuryChartViewController.swift */; };
 		01E9F1711C78BEF00042A3B6 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01E9F1701C78BEF00042A3B6 /* AppDelegate.swift */; };
 		01E9F1761C78BEF00042A3B6 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 01E9F1741C78BEF00042A3B6 /* Main.storyboard */; };
 		01E9F1781C78BEF00042A3B6 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 01E9F1771C78BEF00042A3B6 /* Assets.xcassets */; };
@@ -49,6 +50,7 @@
 		016D2A811C7A7FEB002EDA1D /* MecurySignalsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MecurySignalsViewController.swift; sourceTree = "<group>"; };
 		016D2A831C81D11F002EDA1D /* SignalsTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SignalsTableViewController.swift; sourceTree = "<group>"; };
 		016D2A851C81D8E0002EDA1D /* InstrumentTabBarController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = InstrumentTabBarController.swift; sourceTree = "<group>"; };
+		016D2A871C8272EC002EDA1D /* MercuryChartViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MercuryChartViewController.swift; sourceTree = "<group>"; };
 		01E9F16D1C78BEF00042A3B6 /* TRIOS_MOBILE_3.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TRIOS_MOBILE_3.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		01E9F1701C78BEF00042A3B6 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		01E9F1751C78BEF00042A3B6 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -113,6 +115,7 @@
 				016D2A7A1C78C7AF002EDA1D /* MERCURY COMMS */,
 				01E9F1701C78BEF00042A3B6 /* AppDelegate.swift */,
 				01E9F1741C78BEF00042A3B6 /* Main.storyboard */,
+				016D2A871C8272EC002EDA1D /* MercuryChartViewController.swift */,
 				016D2A851C81D8E0002EDA1D /* InstrumentTabBarController.swift */,
 				016D2A831C81D11F002EDA1D /* SignalsTableViewController.swift */,
 				016D2A811C7A7FEB002EDA1D /* MecurySignalsViewController.swift */,
@@ -201,6 +204,7 @@
 			files = (
 				016D2A781C78C7A5002EDA1D /* GCDAsyncSocket.m in Sources */,
 				016D2A861C81D8E0002EDA1D /* InstrumentTabBarController.swift in Sources */,
+				016D2A881C8272EC002EDA1D /* MercuryChartViewController.swift in Sources */,
 				016D2A791C78C7A5002EDA1D /* MercuryFile.m in Sources */,
 				016D2A841C81D11F002EDA1D /* SignalsTableViewController.swift in Sources */,
 				01E9F1711C78BEF00042A3B6 /* AppDelegate.swift in Sources */,
