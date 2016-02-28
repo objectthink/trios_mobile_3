@@ -1,42 +1,45 @@
 //
-//  SignalsTableViewController.swift
+//  MercuryMethodTableViewController.swift
 //  TRIOS_MOBILE_3
 //
-//  Created by stephen eshelman on 2/27/16.
+//  Created by stephen eshelman on 2/28/16.
 //  Copyright © 2016 objectthink.com. All rights reserved.
 //
 
 import UIKit
 
-class SignalsTableViewController: UITableViewController, MercuryInstrumentDelegate, MercuryHasInstrumentProtocol
+class MercuryMethodTableViewController: UITableViewController, MercuryInstrumentDelegate, MercuryHasInstrumentProtocol
 {
    var _instrument:MercuryInstrument!
-   var _signalsResponse: MercuryRealTimeSignalsStatusResponse!
-
-   var _supportedSignals:[uint] =
-   [
-      IdDeltaT0C.rawValue,
-      IdDeltaT0CFilt.rawValue,
-      IdDeltaT0CUnc.rawValue,
-      IdDeltaTC.rawValue,
-      IdFlangeC.rawValue,
-      IdHeatFlow.rawValue,
-      IdT0UncorrectedMV.rawValue,
-      IdT0C.rawValue,
-      IdT0UncorrectedC.rawValue,
-      IdCommonTime.rawValue
-   ]
+   var _procedureResponse:MercuryGetProcedureResponse!
    
    var instrument:MercuryInstrument
-   {
-      get{ return _instrument}
+      {
+      get { return _instrument }
       set
       {
          _instrument = newValue
-         _instrument.addDelegate(self)
+         
+         _instrument.sendCommand(MercuryGetProcedureCommand())
+         { (r) -> Void in
+               
+               let response = MercuryGetProcedureResponse(message: NSData(data: r.bytes))
+            
+               self._procedureResponse = response
+            
+               for segment in response.segments
+               {
+                  print(segment.description)
+               }
+            
+               dispatch_async(dispatch_get_main_queue(),
+               { () -> Void in
+                  self.tableView.reloadData()
+               })
+         }
+
       }
    }
-
    override func viewDidLoad()
    {
       super.viewDidLoad()
@@ -61,7 +64,6 @@ class SignalsTableViewController: UITableViewController, MercuryInstrumentDelega
    override func didReceiveMemoryWarning()
    {
       super.didReceiveMemoryWarning()
-      
       // Dispose of any resources that can be recreated.
    }
    
@@ -76,31 +78,29 @@ class SignalsTableViewController: UITableViewController, MercuryInstrumentDelega
    override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int
    {
       // #warning Incomplete implementation, return the number of rows
-      if(_signalsResponse != nil)
+      if _procedureResponse == nil
       {
-         return _supportedSignals.count
+         return 0
       }
       else
       {
-         return 0
+         return _procedureResponse.segments.count
       }
    }
    
    override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell
    {
-      let cell = tableView.dequeueReusableCellWithIdentifier("signalCellIdentifier", forIndexPath: indexPath)
+      let cell = tableView.dequeueReusableCellWithIdentifier("segmentCell", forIndexPath: indexPath)
       
       // Configure the cell...
-      cell.textLabel?.text       = _instrument.signalToString(_supportedSignals[indexPath.row])
-      cell.detailTextLabel?.text = "\(_signalsResponse.signals[Int(_supportedSignals[indexPath.row])])"
+      cell.textLabel!.text = _procedureResponse.segments[indexPath.row].name
       
       return cell
    }
    
    /*
    // Override to support conditional editing of the table view.
-   override func tableView(tableView: UITableView, canEditRowAtIndexPath indexPath: NSIndexPath) -> Bool
-   {
+   override func tableView(tableView: UITableView, canEditRowAtIndexPath indexPath: NSIndexPath) -> Bool {
    // Return false if you do not want the specified item to be editable.
    return true
    }
@@ -108,15 +108,11 @@ class SignalsTableViewController: UITableViewController, MercuryInstrumentDelega
    
    /*
    // Override to support editing the table view.
-   override func tableView(tableView: UITableView, commitEditingStyle editingStyle: UITableViewCellEditingStyle, forRowAtIndexPath indexPath: NSIndexPath)
-   {
-   if editingStyle == .Delete
-   {
+   override func tableView(tableView: UITableView, commitEditingStyle editingStyle: UITableViewCellEditingStyle, forRowAtIndexPath indexPath: NSIndexPath) {
+   if editingStyle == .Delete {
    // Delete the row from the data source
    tableView.deleteRowsAtIndexPaths([indexPath], withRowAnimation: .Fade)
-   }
-   else if editingStyle == .Insert
-   {
+   } else if editingStyle == .Insert {
    // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view
    }
    }
@@ -124,16 +120,14 @@ class SignalsTableViewController: UITableViewController, MercuryInstrumentDelega
    
    /*
    // Override to support rearranging the table view.
-   override func tableView(tableView: UITableView, moveRowAtIndexPath fromIndexPath: NSIndexPath, toIndexPath: NSIndexPath)
-   {
+   override func tableView(tableView: UITableView, moveRowAtIndexPath fromIndexPath: NSIndexPath, toIndexPath: NSIndexPath) {
    
    }
    */
    
    /*
    // Override to support conditional rearranging of the table view.
-   override func tableView(tableView: UITableView, canMoveRowAtIndexPath indexPath: NSIndexPath) -> Bool
-   {
+   override func tableView(tableView: UITableView, canMoveRowAtIndexPath indexPath: NSIndexPath) -> Bool {
    // Return false if you do not want the item to be re-orderable.
    return true
    }
@@ -143,26 +137,21 @@ class SignalsTableViewController: UITableViewController, MercuryInstrumentDelega
    // MARK: - Navigation
    
    // In a storyboard-based application, you will often want to do a little preparation before navigation
-   override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?)
-   {
+   override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
    // Get the new view controller using segue.destinationViewController.
    // Pass the selected object to the new view controller.
    }
    */
-   
    // MARK: - MercuryInstrumentDelegate
    
    func stat(message: NSData!, withSubcommand subcommand: uint)
    {
       if(subcommand == RealTimeSignalStatus.rawValue)
       {
-         print("REALTIMESIGNALS !!!!!!")
+         print("REALTIMESIGNALS IN MERCURY METHOD TABLE VIEW CONTROLLER !!!!!!")
          
-         _signalsResponse = MercuryRealTimeSignalsStatusResponse(message: message)
-                  
          dispatch_async(dispatch_get_main_queue(),
          { () -> Void in
-            self.tableView.reloadData()
          })
       }
    }
@@ -174,7 +163,7 @@ class SignalsTableViewController: UITableViewController, MercuryInstrumentDelega
    func accept(access: MercuryAccess)
    {
    }
-
+   
    func response(
       message: NSData!,
       withSequenceNumber sequenceNumber: uint,

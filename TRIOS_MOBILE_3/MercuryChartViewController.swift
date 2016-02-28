@@ -15,7 +15,7 @@ class MercuryChartViewController: UIViewController, MercuryInstrumentDelegate, M
    
    
    var instrument:MercuryInstrument
-      {
+   {
       get{ return _instrument}
       set
       {
@@ -29,11 +29,21 @@ class MercuryChartViewController: UIViewController, MercuryInstrumentDelegate, M
       super.viewDidLoad()
       
       // Do any additional setup after loading the view.
+      if let lc = view.layer as? LineChart
+      {
+         let data: [CGFloat] = [3.0, 4.0, 9.0, 11.0, 13.0, 15.0]
+         lc.datasets += [ LineChart.Dataset(label: "My Data", data: data) ]
+      }
    }
    
    override func viewDidDisappear(animated: Bool)
    {
       _instrument.removeDelegate(self)
+   }
+   
+   override func viewDidAppear(animated: Bool)
+   {
+      _instrument.addDelegate(self)
    }
    
    override func didReceiveMemoryWarning()
@@ -53,7 +63,18 @@ class MercuryChartViewController: UIViewController, MercuryInstrumentDelegate, M
          _signalsResponse = MercuryRealTimeSignalsStatusResponse(message: message)
          
          dispatch_async(dispatch_get_main_queue(),
-            { () -> Void in
+         { () -> Void in
+            
+            if let lineChart = self.view.layer as? LineChart
+            {
+               //let line = lineChart.datasets.first!
+               //line.data += [ CGFloat(self._signalsResponse.signals[76] as! NSNumber) ]
+               
+               let line = lineChart.datasets.first!
+               //let value = arc4random() % 25
+               line.data += [ CGFloat(self._signalsResponse.signals[76] as! NSNumber) ]
+               //line.data += [ CGFloat(value) ]
+            }
          })
       }
    }

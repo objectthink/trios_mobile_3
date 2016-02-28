@@ -97,7 +97,7 @@
         <!--Method-->
         <scene sceneID="p8o-tP-oGR">
             <objects>
-                <viewController id="b01-xT-QQ7" sceneMemberID="viewController">
+                <viewController id="b01-xT-QQ7" customClass="RunningMethodViewController" customModule="TRIOS_MOBILE_3" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="3fP-9G-cwZ"/>
                         <viewControllerLayoutGuide type="bottom" id="yH4-jC-72B"/>
@@ -110,10 +110,18 @@
                                 <rect key="frame" x="229" y="81" width="143" height="30"/>
                                 <state key="normal" title="Next Segment"/>
                             </button>
+                            <containerView opaque="NO" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="IXW-JE-iYD">
+                                <rect key="frame" x="0.0" y="119" width="600" height="432"/>
+                                <connections>
+                                    <segue destination="bVO-YK-CJY" kind="embed" id="rcJ-lE-IQo"/>
+                                </connections>
+                            </containerView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstItem="efM-vw-bTJ" firstAttribute="centerX" secondItem="siK-bT-hIF" secondAttribute="centerX" id="85m-zQ-mTr"/>
+                            <constraint firstItem="IXW-JE-iYD" firstAttribute="centerX" secondItem="siK-bT-hIF" secondAttribute="centerX" id="P3Z-SL-Swu"/>
+                            <constraint firstItem="IXW-JE-iYD" firstAttribute="centerY" secondItem="siK-bT-hIF" secondAttribute="centerY" id="c8v-ks-EVk"/>
                             <constraint firstItem="efM-vw-bTJ" firstAttribute="centerX" secondItem="siK-bT-hIF" secondAttribute="centerX" id="kfG-q1-9Za"/>
                         </constraints>
                     </view>
@@ -212,19 +220,6 @@
             </objects>
             <point key="canvasLocation" x="616" y="489"/>
         </scene>
-        <!--View Controller-->
-        <scene sceneID="1HT-xQ-rlv">
-            <objects>
-                <viewController id="83G-GH-EUN" sceneMemberID="viewController">
-                    <view key="view" contentMode="scaleToFill" id="93s-Fn-BmT">
-                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                    </view>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="oqZ-ag-YDb" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-        </scene>
         <!--Signals Table View Controller-->
         <scene sceneID="Lyu-Wb-dsB">
             <objects>
@@ -269,11 +264,11 @@
             </objects>
             <point key="canvasLocation" x="4064" y="-295"/>
         </scene>
-        <!--View Controller-->
+        <!--Mercury Chart View Controller-->
         <scene sceneID="eKW-oX-1yB">
             <objects>
-                <viewController id="GTg-kQ-fgT" sceneMemberID="viewController">
-                    <view key="view" contentMode="scaleToFill" id="Fgi-Ra-dA1">
+                <viewController id="GTg-kQ-fgT" customClass="MercuryChartViewController" customModule="TRIOS_MOBILE_3" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="Fgi-Ra-dA1" customClass="LineChartView" customModule="TRIOS_MOBILE_3" customModuleProvider="target">
                         <rect key="frame" x="0.0" y="0.0" width="600" height="429"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
@@ -290,6 +285,34 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="wLx-5T-hFx" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="4064" y="270.5"/>
+        </scene>
+        <!--Mercury Method Table View Controller-->
+        <scene sceneID="MK8-65-JLn">
+            <objects>
+                <tableViewController id="bVO-YK-CJY" customClass="MercuryMethodTableViewController" customModule="TRIOS_MOBILE_3" customModuleProvider="target" sceneMemberID="viewController">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" id="gAC-lK-PJm">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="432"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <prototypes>
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="segmentCell" id="Y4q-Z6-Z21">
+                                <rect key="frame" x="0.0" y="28" width="600" height="44"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="Y4q-Z6-Z21" id="WgR-ph-Mfb">
+                                    <rect key="frame" x="0.0" y="0.0" width="600" height="43"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                </tableViewCellContentView>
+                            </tableViewCell>
+                        </prototypes>
+                        <connections>
+                            <outlet property="dataSource" destination="bVO-YK-CJY" id="Qur-j3-fjQ"/>
+                            <outlet property="delegate" destination="bVO-YK-CJY" id="qxY-fT-WRG"/>
+                        </connections>
+                    </tableView>
+                </tableViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="fFP-8p-ADn" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="4055" y="857"/>
         </scene>
     </scenes>
     <resources>
