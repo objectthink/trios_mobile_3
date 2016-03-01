@@ -22,20 +22,23 @@ class MercuryMethodTableViewController: UITableViewController, MercuryInstrument
          
          _instrument.sendCommand(MercuryGetProcedureCommand())
          { (r) -> Void in
-               
-               let response = MercuryGetProcedureResponse(message: NSData(data: r.bytes))
-            
-               self._procedureResponse = response
-            
-               for segment in response.segments
+               if r != nil
                {
-                  print(segment.description)
+                  let response = MercuryGetProcedureResponse(message: NSData(data: r.bytes))
+                  
+                  self._procedureResponse = response
+                  
+                  for segment in response.segments
+                  {
+                     print(segment.description)
+                  }
+                  
+                  dispatch_async(dispatch_get_main_queue(),
+                     { () -> Void in
+                        self.tableView.reloadData()
+                  })
+                  
                }
-            
-               dispatch_async(dispatch_get_main_queue(),
-               { () -> Void in
-                  self.tableView.reloadData()
-               })
          }
 
       }
