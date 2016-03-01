@@ -8,8 +8,11 @@
 
 import UIKit
 
-class InstrumentTabBarController: UITabBarController
+class InstrumentTabBarController: UITabBarController, MercuryInstrumentDelegate
 {
+   var _instrumentName:String!
+   var _status:String! = "Idle"
+   
    var _instrument:MercuryInstrument!
    var instrument:MercuryInstrument!
    {
@@ -26,6 +29,48 @@ class InstrumentTabBarController: UITabBarController
                vc.instrument = instrument
             }
          }
+         
+         _instrument.sendCommand(GetName())
+         { (response) -> Void in
+            if let str = NSString(data: response.bytes, encoding: NSUTF8StringEncoding) as? String
+            {
+               self._instrumentName = self.mercuryStringFixup(str)
+               
+               dispatch_async(dispatch_get_main_queue(),
+               { () -> Void in
+                     
+                     self.title = self._instrumentName + " : " + self._status
+               })
+            }
+         }
+         
+         self._instrument.sendCommand(MercuryGetProcedureStatusCommand())
+         { (r) -> Void in
+               let response = MercuryProcedureStatusResponse(message: NSData(data: r.bytes))
+               
+               let runStatus = response.runStatus.rawValue
+               
+               switch(runStatus)
+               {
+               case  0:
+                  self._status = "Idle"
+               case 1:
+                  self._status = "PreTest"
+               case 2:
+                  self._status = "Test"
+               case 3:
+                  self._status = "PostTest"
+               default:
+                  self._status = "AAAAAA"
+               }
+               
+               dispatch_async(dispatch_get_main_queue(),
+               { () -> Void in
+                     
+                     self.title = self._instrumentName + " : " + self._status
+               })
+               
+         }
 
       }
    }
@@ -39,6 +84,51 @@ class InstrumentTabBarController: UITabBarController
    {
       super.didReceiveMemoryWarning()
       // Dispose of any resources that can be recreated.
+   }
+   
+   func mercuryStringFixup(s:String)->String
+   {
+      var sOut:String = String()
+      
+      for character in s.characters
+      {
+         if character != "\0"
+         {
+            sOut.append(character)
+         }
+      }
+      
+      return sOut
+   }
+   
+   // MARK: - MercuryInstrumentDelegate
+   
+   func stat(message: NSData!, withSubcommand subcommand: uint)
+   {
+   }
+   
+   func connected()
+   {
+   }
+   
+   func accept(access: MercuryAccess)
+   {
+   }
+   
+   func response(
+      message: NSData!,
+      withSequenceNumber sequenceNumber: uint,
+      subcommand: uint,
+      status: uint)
+   {
+   }
+   
+   func ackWithSequenceNumber(sequencenumber: uint)
+   {
+   }
+   
+   func nakWithSequenceNumber(sequencenumber: uint, andError errorcode: uint)
+   {
    }
    
    // MARK: - Navigation

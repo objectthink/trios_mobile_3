@@ -162,19 +162,8 @@ class InstrumentCell: UICollectionViewCell, MercuryInstrumentDelegate
       print("accept")
    }
    
-   var _statCount:Int = 0
    func stat(message: NSData!, withSubcommand subcommand: uint)
    {
-      _statCount++
-      
-//      if _statCount >= 100
-//      {
-//         print("stat 100")
-//         _statCount = 0
-//      }
-      
-//      print(subcommand)
-      
       if(subcommand == RealTimeSignalStatus.rawValue)
       {
          print("REALTIMESIGNALS")
