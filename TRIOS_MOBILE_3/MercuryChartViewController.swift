@@ -31,8 +31,10 @@ class MercuryChartViewController: UIViewController, MercuryInstrumentDelegate, M
       // Do any additional setup after loading the view.
       if let lc = view.layer as? LineChart
       {
-         let data: [CGFloat] = [3.0, 4.0, 9.0, 11.0, 13.0, 15.0]
-         lc.datasets += [ LineChart.Dataset(label: "My Data", data: data) ]
+         //let data: [CGFloat] = [3.0, 4.0, 9.0, 11.0, 13.0, 15.0]
+         let data: [CGFloat] = [3.0, 4.0]
+         
+         lc.datasets += [ LineChart.Dataset(label: "Data", data: data) ]
       }
    }
    
@@ -58,7 +60,7 @@ class MercuryChartViewController: UIViewController, MercuryInstrumentDelegate, M
    {
       if(subcommand == RealTimeSignalStatus.rawValue)
       {
-         print("REALTIMESIGNALS !!!!!!")
+         //print("REALTIMESIGNALS !!!!!!")
          
          _signalsResponse = MercuryRealTimeSignalsStatusResponse(message: message)
          
@@ -71,8 +73,11 @@ class MercuryChartViewController: UIViewController, MercuryInstrumentDelegate, M
                //line.data += [ CGFloat(self._signalsResponse.signals[76] as! NSNumber) ]
                
                let line = lineChart.datasets.first!
+               
                //let value = arc4random() % 25
+               
                line.data += [ CGFloat(self._signalsResponse.signals[76] as! NSNumber) ]
+               
                //line.data += [ CGFloat(value) ]
             }
          })

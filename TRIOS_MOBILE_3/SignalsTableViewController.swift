@@ -11,7 +11,7 @@ import UIKit
 class SignalsTableViewController: UITableViewController, MercuryInstrumentDelegate, MercuryHasInstrumentProtocol
 {
    var _instrument:MercuryInstrument!
-   var _signalsResponse: MercuryRealTimeSignalsStatusResponse!
+   var _signalsResponse: MercuryRealTimeSignalsStatusResponse! = nil
 
    var _supportedSignals:[uint] =
    [
@@ -156,7 +156,7 @@ class SignalsTableViewController: UITableViewController, MercuryInstrumentDelega
    {
       if(subcommand == RealTimeSignalStatus.rawValue)
       {
-         print("REALTIMESIGNALS !!!!!!")
+         //print("REALTIMESIGNALS !!!!!!")
          
          _signalsResponse = MercuryRealTimeSignalsStatusResponse(message: message)
                   

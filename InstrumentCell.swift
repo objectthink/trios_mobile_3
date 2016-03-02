@@ -166,7 +166,7 @@ class InstrumentCell: UICollectionViewCell, MercuryInstrumentDelegate
    {
       if(subcommand == RealTimeSignalStatus.rawValue)
       {
-         print("REALTIMESIGNALS")
+         //print("REALTIMESIGNALS")
          
          let response = MercuryRealTimeSignalsStatusResponse(message: message)
          

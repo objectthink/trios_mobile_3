@@ -10,8 +10,8 @@ import UIKit
 
 class InstrumentTabBarController: UITabBarController, MercuryInstrumentDelegate
 {
-   var _instrumentName:String!
-   var _status:String! = "Idle"
+   var _instrumentName:String! = "Name"
+   var _status:String! = "Status"
    
    var _instrument:MercuryInstrument!
    var instrument:MercuryInstrument!
@@ -44,7 +44,7 @@ class InstrumentTabBarController: UITabBarController, MercuryInstrumentDelegate
             }
          }
          
-         self._instrument.sendCommand(MercuryGetProcedureStatusCommand())
+         _instrument.sendCommand(MercuryGetProcedureStatusCommand())
          { (r) -> Void in
                let response = MercuryProcedureStatusResponse(message: NSData(data: r.bytes))
                

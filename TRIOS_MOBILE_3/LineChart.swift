@@ -341,7 +341,7 @@ class LineChart: CALayer {
         }
 
         // 1) Estimate Y-axis widths so we know graph width
-        var estimatedYAxisWidths = 50.0 * CGFloat(yAxes.count)
+        let estimatedYAxisWidths = 50.0 * CGFloat(yAxes.count)
         
         // 2) Knowing graph width, figure out X-axis height
         let maxTickLabelWidth: CGFloat = xAxis.ticks.reduce(0.0, combine: { max($0, $1.labelLayer.bounds.width) })
@@ -735,12 +735,12 @@ extension LineChart {
       
       override func observeValueForKeyPath(keyPath: String?, ofObject object: AnyObject?, change: [String : AnyObject]?, context: UnsafeMutablePointer<Void>)
       {
-                     for point in points
-                     {
-                         point.setValue(defaultPoint.valueForKeyPath(keyPath!), forKeyPath: keyPath!)
-                     }
-      
+         for point in points
+         {
+            point.setValue(defaultPoint.valueForKeyPath(keyPath!), forKeyPath: keyPath!)
+         }
       }
+      
         required init(coder aDecoder: NSCoder) {
             fatalError("init(coder:) has not been implemented")
         }

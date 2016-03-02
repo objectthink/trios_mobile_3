@@ -97,6 +97,7 @@ class MercuryMethodTableViewController: UITableViewController, MercuryInstrument
       
       // Configure the cell...
       cell.textLabel!.text = _procedureResponse.segments[indexPath.row].name
+      cell.detailTextLabel!.text = _procedureResponse.segments[indexPath.row].description
       
       return cell
    }
@@ -151,7 +152,7 @@ class MercuryMethodTableViewController: UITableViewController, MercuryInstrument
    {
       if(subcommand == RealTimeSignalStatus.rawValue)
       {
-         print("REALTIMESIGNALS IN MERCURY METHOD TABLE VIEW CONTROLLER !!!!!!")
+         //print("REALTIMESIGNALS IN MERCURY METHOD TABLE VIEW CONTROLLER !!!!!!")
          
          dispatch_async(dispatch_get_main_queue(),
          { () -> Void in
