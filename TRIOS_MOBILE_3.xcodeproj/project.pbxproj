@@ -29,6 +29,15 @@
 		01E9F1781C78BEF00042A3B6 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 01E9F1771C78BEF00042A3B6 /* Assets.xcassets */; };
 		01E9F17B1C78BEF00042A3B6 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 01E9F1791C78BEF00042A3B6 /* LaunchScreen.storyboard */; };
 		01E9F1831C78C2610042A3B6 /* InstrumentCollectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01E9F1821C78C2610042A3B6 /* InstrumentCollectionViewController.swift */; };
+		01F021901CD6A7E100AAA5D8 /* ysocket.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01F0218B1CD6A7E100AAA5D8 /* ysocket.swift */; };
+		01F021911CD6A7E100AAA5D8 /* ytcpsocket.c in Sources */ = {isa = PBXBuildFile; fileRef = 01F0218C1CD6A7E100AAA5D8 /* ytcpsocket.c */; };
+		01F021921CD6A7E100AAA5D8 /* ytcpsocket.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01F0218D1CD6A7E100AAA5D8 /* ytcpsocket.swift */; };
+		01F021931CD6A7E100AAA5D8 /* yudpsocket.c in Sources */ = {isa = PBXBuildFile; fileRef = 01F0218E1CD6A7E100AAA5D8 /* yudpsocket.c */; };
+		01F021941CD6A7E100AAA5D8 /* yudpsocket.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01F0218F1CD6A7E100AAA5D8 /* yudpsocket.swift */; };
+		01F021991CD6AE0100AAA5D8 /* JSON.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01F021951CD6AE0100AAA5D8 /* JSON.swift */; };
+		01F0219A1CD6AE0100AAA5D8 /* JSONDecodable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01F021961CD6AE0100AAA5D8 /* JSONDecodable.swift */; };
+		01F0219B1CD6AE0100AAA5D8 /* JSONEncodable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01F021971CD6AE0100AAA5D8 /* JSONEncodable.swift */; };
+		01F0219C1CD6AE0100AAA5D8 /* JSONExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01F021981CD6AE0100AAA5D8 /* JSONExtensions.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -64,6 +73,15 @@
 		01E9F17A1C78BEF00042A3B6 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		01E9F17C1C78BEF00042A3B6 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		01E9F1821C78C2610042A3B6 /* InstrumentCollectionViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = InstrumentCollectionViewController.swift; sourceTree = "<group>"; };
+		01F0218B1CD6A7E100AAA5D8 /* ysocket.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ysocket.swift; sourceTree = "<group>"; };
+		01F0218C1CD6A7E100AAA5D8 /* ytcpsocket.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = ytcpsocket.c; sourceTree = "<group>"; };
+		01F0218D1CD6A7E100AAA5D8 /* ytcpsocket.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ytcpsocket.swift; sourceTree = "<group>"; };
+		01F0218E1CD6A7E100AAA5D8 /* yudpsocket.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = yudpsocket.c; sourceTree = "<group>"; };
+		01F0218F1CD6A7E100AAA5D8 /* yudpsocket.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = yudpsocket.swift; sourceTree = "<group>"; };
+		01F021951CD6AE0100AAA5D8 /* JSON.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = JSON.swift; sourceTree = "<group>"; };
+		01F021961CD6AE0100AAA5D8 /* JSONDecodable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = JSONDecodable.swift; sourceTree = "<group>"; };
+		01F021971CD6AE0100AAA5D8 /* JSONEncodable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = JSONEncodable.swift; sourceTree = "<group>"; };
+		01F021981CD6AE0100AAA5D8 /* JSONExtensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = JSONExtensions.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -102,6 +120,15 @@
 		016D2A891C827A6A002EDA1D /* THIRD PARTY */ = {
 			isa = PBXGroup;
 			children = (
+				01F021951CD6AE0100AAA5D8 /* JSON.swift */,
+				01F021961CD6AE0100AAA5D8 /* JSONDecodable.swift */,
+				01F021971CD6AE0100AAA5D8 /* JSONEncodable.swift */,
+				01F021981CD6AE0100AAA5D8 /* JSONExtensions.swift */,
+				01F0218B1CD6A7E100AAA5D8 /* ysocket.swift */,
+				01F0218C1CD6A7E100AAA5D8 /* ytcpsocket.c */,
+				01F0218D1CD6A7E100AAA5D8 /* ytcpsocket.swift */,
+				01F0218E1CD6A7E100AAA5D8 /* yudpsocket.c */,
+				01F0218F1CD6A7E100AAA5D8 /* yudpsocket.swift */,
 				016D2A8A1C827ACD002EDA1D /* LineChart.swift */,
 			);
 			name = "THIRD PARTY";
@@ -220,9 +247,12 @@
 			buildActionMask = 2147483647;
 			files = (
 				016D2A8F1C832233002EDA1D /* MercuryMethodTableViewController.swift in Sources */,
+				01F0219B1CD6AE0100AAA5D8 /* JSONEncodable.swift in Sources */,
 				016D2A781C78C7A5002EDA1D /* GCDAsyncSocket.m in Sources */,
 				016D2A861C81D8E0002EDA1D /* InstrumentTabBarController.swift in Sources */,
+				01F0219A1CD6AE0100AAA5D8 /* JSONDecodable.swift in Sources */,
 				016D2A881C8272EC002EDA1D /* MercuryChartViewController.swift in Sources */,
+				01F021921CD6A7E100AAA5D8 /* ytcpsocket.swift in Sources */,
 				016D2A791C78C7A5002EDA1D /* MercuryFile.m in Sources */,
 				016D2A841C81D11F002EDA1D /* SignalsTableViewController.swift in Sources */,
 				01E9F1711C78BEF00042A3B6 /* AppDelegate.swift in Sources */,
@@ -231,11 +261,17 @@
 				016D2A771C78C7A5002EDA1D /* MercuryProcedure.m in Sources */,
 				016D2A821C7A7FEB002EDA1D /* MecurySignalsViewController.swift in Sources */,
 				016D2A801C78CF2F002EDA1D /* InstrumentCell.swift in Sources */,
+				01F021991CD6AE0100AAA5D8 /* JSON.swift in Sources */,
+				01F021901CD6A7E100AAA5D8 /* ysocket.swift in Sources */,
+				01F021911CD6A7E100AAA5D8 /* ytcpsocket.c in Sources */,
 				01E9F1831C78C2610042A3B6 /* InstrumentCollectionViewController.swift in Sources */,
+				01F0219C1CD6AE0100AAA5D8 /* JSONExtensions.swift in Sources */,
+				01F021941CD6A7E100AAA5D8 /* yudpsocket.swift in Sources */,
 				016D2A911C832559002EDA1D /* RunningMethodViewController.swift in Sources */,
 				016D2A731C78C7A5002EDA1D /* MercuryInstrument.m in Sources */,
 				016D2A761C78C7A5002EDA1D /* MercuryStatus.m in Sources */,
 				016D2A8B1C827ACD002EDA1D /* LineChart.swift in Sources */,
+				01F021931CD6A7E100AAA5D8 /* yudpsocket.c in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

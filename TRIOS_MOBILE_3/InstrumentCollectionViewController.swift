@@ -47,7 +47,7 @@ class InstrumentCollectionViewController: UICollectionViewController
       //3. Grab the value from the text field, and print it when the user clicks OK.
       alert.addAction(
          UIAlertAction(
-            title: "OK",
+            title: "Ok",
             style: .Default,
             handler:
             { (action) -> Void in
@@ -68,6 +68,24 @@ class InstrumentCollectionViewController: UICollectionViewController
                self.collectionView?.reloadData()
             }))
       
+      alert.addAction(
+         UIAlertAction(
+            title: "Trios",
+            style: .Default,
+            handler:
+            { (action) -> Void in
+               let textField = alert.textFields![0] as UITextField
+               
+               let instrument:MercuryInstrument = MercuryInstrument()
+               
+               instrument.isTrios = true
+               instrument.host = textField.text
+               
+               self._instruments.append(instrument)
+               
+               self.collectionView?.reloadData()
+         }))
+
       alert.addAction(
          UIAlertAction(
             title: "Cancel",
@@ -130,6 +148,11 @@ class InstrumentCollectionViewController: UICollectionViewController
    {
       _selectedItemIndex = selectedItemIndex
       
+      if _instruments[selectedItemIndex.row].isTrios == true
+      {
+         return
+      }
+            
       //As sender send any data you need from the current Selected CollectionView
       self.performSegueWithIdentifier("InstrumentSegue", sender: self)
    }

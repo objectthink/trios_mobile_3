@@ -602,9 +602,9 @@ extension LineChart {
                 xStart = -3.0
                 xEnd = 3.0
             }
-            lineLayer.path = CGPath.Dataset(CGPoint(x: xStart, y: 0), end: CGPoint(x: xEnd, y: 0))
-            lineLayer.strokeColor = CGColorCreateCopyWithAlpha(CGColorCreateFromHex(0x000000), 0.2)
-            addSublayer(lineLayer)
+            //lineLayer.path = CGPath.Dataset(CGPoint(x: xStart, y: 0), end: CGPoint(x: xEnd, y: 0))
+            //lineLayer.strokeColor = CGColorCreateCopyWithAlpha(CGColorCreateFromHex(0x000000), 0.2)
+            //addSublayer(lineLayer)
             
             // Label
             labelLayer.fontSize = 12.0

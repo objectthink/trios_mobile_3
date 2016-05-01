@@ -46,6 +46,16 @@ class InstrumentCell: UICollectionViewCell, MercuryInstrumentDelegate
    @IBOutlet var _temperature: UILabel!
    
    var _instrument:MercuryInstrument!
+   var _isTrios:Bool!
+   
+   var isTrios:Bool
+   {
+      get{return _isTrios}
+      set
+      {
+         _isTrios = newValue
+      }
+   }
    
    var instrument:MercuryInstrument!
    {
@@ -53,6 +63,55 @@ class InstrumentCell: UICollectionViewCell, MercuryInstrumentDelegate
       set
       {
          _instrument = newValue
+         
+         if _instrument.isTrios == true
+         {
+            self._name.text = "Trios"
+            
+            var client:TCPClient = TCPClient(addr: "10.52.53.26", port: 50007)
+            var (success, errmsg) = client.connect(timeout: 10)
+            if success
+            {
+               var (success, errmsg) = client.send(str:"InstrumentInformation" )
+               if success
+               {
+                  var data = client.read(1024*10)
+                  if let d = data
+                  {
+                     if let str = String(bytes: d, encoding: NSUTF8StringEncoding)
+                     {
+                        print(str)
+                        
+                        dispatch_async(dispatch_get_main_queue(),
+                        { () -> Void in
+                           let json = JSON(string: str)
+                           let instrument = json!["Instrument"]
+                           
+                           let serialNumber = instrument!["SerialNumber"]?.string
+                           let runState = instrument!["RunState"]?.string
+                           let name = instrument!["Name"]?.string
+                           
+                           self._serialNumber.text = serialNumber
+                           self._statusLabel.text = "Status: " + runState!
+                           self._name.text = name
+
+                        })
+                     }
+                  }
+               }
+               else
+               {
+                  print(errmsg)
+               }
+            }
+            else
+            {
+               print(errmsg)
+            }
+            
+            return
+         }
+         
          _instrument.addDelegate(self)
          
          _instrument.sendCommand(MercuryGetProcedureStatusCommand())
@@ -80,7 +139,7 @@ class InstrumentCell: UICollectionViewCell, MercuryInstrumentDelegate
                   case 3:
                      self._statusLabel.text = "Status: PostTest"
                   default:
-                     self._statusLabel.text = "AAAAAA"
+                     self._statusLabel.text = "Status: Unknown"
                   }
                   
             })
